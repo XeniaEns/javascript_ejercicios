@@ -1,7 +1,12 @@
 'use strict';
 
 // Generar el número aleatorio
-const number = Math.trunc(Math.random() * 20 + 1);
+function randomNumber() {
+  return Math.trunc(Math.random() * 20 + 1);
+}
+let number = randomNumber();
+console.log(number);
+
 let score = 20;
 let highscore = 0;
 // Mensajes del juego
@@ -50,10 +55,12 @@ function check_result(msg, lost_msg) {
 
 document.querySelector('.again').addEventListener('click', () => {
   score = 20;
+
   document.querySelector('.message').textContent = iniciar_juego;
   document.querySelector('.score').textContent = score.toString();
   document.querySelector('.score').textContent = score;
   document.querySelector('.number').textContent = '?';
   document.querySelector('body').style.backgroundColor = original_bgk;
   document.querySelector('.guess').value = '';
+  number = randomNumber();
 });
